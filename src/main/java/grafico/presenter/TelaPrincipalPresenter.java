@@ -63,6 +63,21 @@ public class TelaPrincipalPresenter {
             }
         });
         
+        // Botoes
+        // Desfazer
+        this.view.getDesfazer().addActionListener((e) -> {
+            
+        });
+        
+        // Restaurar Padrão
+        this.view.getRestaurarPadrao().addActionListener((e) -> {
+            
+        });
+        
+        // Fechar
+        this.view.getFechar().addActionListener((e) -> {
+            this.view.setVisible(false);
+        });
         
         this.view.setVisible(true);
     }

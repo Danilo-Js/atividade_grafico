@@ -5,6 +5,7 @@
  */
 package grafico.view;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 
@@ -280,6 +281,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
     public JComboBox<String> getGraficosPadrao() {
         return GraficosPadrao;
+    }
+    
+    public JButton getDesfazer() {
+        return jButton_Desfazer;
+    }
+    
+    public JButton getFechar() {
+        return jButton_Fechar;
+    }
+    
+    public JButton getRestaurarPadrao() {
+        return jButton_RestaurarPadrao;
     }
     
 

@@ -5,6 +5,8 @@
  */
 package grafico.view;
 
+import javax.swing.JRadioButton;
+
 /**
  *
  * @author meumacbook
@@ -238,6 +240,42 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
     }
+    
+    public JRadioButton getRadio_Titulo() {
+        return radio_Titulo;
+    }
+    
+    public JRadioButton getRadio_Legenda() {
+        return radio_Legenda;
+    }
+    
+    public JRadioButton getRadio_TituloDosEixos() {
+        return radio_TituloDosEixos;
+    }
+    
+    public JRadioButton getRadio_RotuloDeDadosPercent() {
+        return radio_RotuloDeDadosPercent;
+    }
+    
+    public JRadioButton getRadio_RotuloDeDadosValor() {
+        return radio_RotuloDeDadosValor;
+    }
+
+    public JRadioButton getRadio_RotuloDeDadosValorPercent() {
+        return radio_RotuloDeDadosValorPercent;
+    }    
+
+    public JRadioButton getRadio_CorDasBarras() {
+        return radio_CorDasBarras;
+    }   
+    
+    public JRadioButton getRadio_CorDasBarrasPorGrupo() {
+        return radio_CorDasBarrasPorGrupo;
+    }    
+
+    public JRadioButton getRadio_Grade() {
+        return radio_Grade;
+    }    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;

@@ -54,6 +54,15 @@ public class TelaPrincipalPresenter {
             
         });
         
+        //GraficosPadrao
+        this.view.getGraficosPadrao().addActionListener((e) -> {
+            if (this.view.getGraficosPadrao().getSelectedItem().equals("Barras Horizontais")) {
+                
+            } else {
+                
+            }
+        });
+        
         
         this.view.setVisible(true);
     }

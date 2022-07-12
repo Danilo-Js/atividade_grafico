@@ -5,6 +5,7 @@
  */
 package grafico.view;
 
+import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 
 /**
@@ -44,7 +45,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         radio_CorDasBarrasPorGrupo = new javax.swing.JRadioButton();
         radio_Grade = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        GraficosPadrao = new javax.swing.JComboBox<>();
         jButton_Desfazer = new javax.swing.JButton();
         jButton_RestaurarPadrao = new javax.swing.JButton();
         jButton_Fechar = new javax.swing.JButton();
@@ -100,7 +101,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel2.setText("Gráficos padrão");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        GraficosPadrao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton_Desfazer.setText("Desfazer");
 
@@ -141,7 +142,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(40, 40, 40)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(GraficosPadrao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(73, 73, 73))
         );
         layout.setVerticalGroup(
@@ -150,7 +151,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(GraficosPadrao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
@@ -181,7 +182,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGap(55, 55, 55))
         );
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Barras Horizontais", "Barras Verticais" }));
+        GraficosPadrao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Barras Horizontais", "Barras Verticais" }));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -276,15 +277,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public JRadioButton getRadio_Grade() {
         return radio_Grade;
     }    
+    
+    public JComboBox<String> getGraficosPadrao() {
+        return GraficosPadrao;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> GraficosPadrao;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JButton jButton_Desfazer;
     private javax.swing.JButton jButton_Fechar;
     private javax.swing.JButton jButton_RestaurarPadrao;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

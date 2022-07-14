@@ -1,5 +1,4 @@
 package grafico.presenter;
-
 import grafico.view.TelaPrincipal;
 
 public class TelaPrincipalPresenter {

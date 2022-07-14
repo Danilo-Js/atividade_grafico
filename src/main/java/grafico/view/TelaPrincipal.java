@@ -5,6 +5,26 @@
  */
 package grafico.view;
 
+import org.jfree.chart.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.block.BlockBorder;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
+import org.jfree.chart.title.TextTitle;
+
+import java.awt.BasicStroke;
+import java.awt.Color;
+
+import java.awt.Font;
+
+import com.mycompany.grafico.Index;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
@@ -34,10 +54,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
         radio_Titulo = new javax.swing.JRadioButton();
         radio_Legenda = new javax.swing.JRadioButton();
         radio_TituloDosEixos = new javax.swing.JRadioButton();
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         radio_RotuloDeDadosPercent = new javax.swing.JRadioButton();
         radio_RotuloDeDadosValor = new javax.swing.JRadioButton();
@@ -50,6 +70,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton_Desfazer = new javax.swing.JButton();
         jButton_RestaurarPadrao = new javax.swing.JButton();
         jButton_Fechar = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,11 +85,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setLayout(new java.awt.BorderLayout());
-
         jLabel1.setText("Elementos Gráficos");
 
         radio_RotuloDeDadosPercent.setText("Rótulo de Dados (%)");
+        radio_RotuloDeDadosPercent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radio_RotuloDeDadosPercentActionPerformed(evt);
+            }
+        });
 
         radio_RotuloDeDadosValor.setText("Rótulo de Dados - Valor");
 
@@ -100,15 +124,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Gráficos padrão");
+        jLabel2.setText("Gráficos padrão :");
 
-        GraficosPadrao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        GraficosPadrao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Barras Horizontais", "Barras Verticais" }));
 
         jButton_Desfazer.setText("Desfazer");
 
         jButton_RestaurarPadrao.setText("Restaurar padrão");
 
         jButton_Fechar.setText("Fechar");
+
+        index = new Index();
+        chart = index.start();
+
+        jPanel2.add(chart);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,11 +166,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(radio_Legenda)
                     .addComponent(radio_Titulo)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(radio_TituloDosEixos))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(428, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -142,7 +181,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addComponent(jButton_Fechar))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(40, 40, 40)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(GraficosPadrao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(73, 73, 73))
         );
@@ -153,28 +192,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(GraficosPadrao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(radio_Titulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(radio_Legenda)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(radio_TituloDosEixos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(radio_RotuloDeDadosPercent)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(radio_RotuloDeDadosValor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(radio_RotuloDeDadosValorPercent)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(radio_CorDasBarras)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(radio_CorDasBarrasPorGrupo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(radio_Grade)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(radio_Titulo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(radio_Legenda)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(radio_TituloDosEixos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(radio_RotuloDeDadosPercent)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(radio_RotuloDeDadosValor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(radio_RotuloDeDadosValorPercent)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(radio_CorDasBarras)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(radio_CorDasBarrasPorGrupo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(radio_Grade))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_Desfazer)
@@ -207,6 +249,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void radio_GradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_GradeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_radio_GradeActionPerformed
+
+    private void radio_RotuloDeDadosPercentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_RotuloDeDadosPercentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radio_RotuloDeDadosPercentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,12 +347,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.JButton jButton_Desfazer;
     private javax.swing.JButton jButton_Fechar;
     private javax.swing.JButton jButton_RestaurarPadrao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
+    private Index index;
+    private ChartFrame chart;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButton radio_CorDasBarras;
     private javax.swing.JRadioButton radio_CorDasBarrasPorGrupo;
     private javax.swing.JRadioButton radio_Grade;

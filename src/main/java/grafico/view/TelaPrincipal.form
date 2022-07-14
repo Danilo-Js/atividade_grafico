@@ -8,6 +8,8 @@
     </Component>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup3">
     </Component>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup4">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -34,22 +36,20 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="radio_Grade" min="-2" max="-2" attributes="0"/>
-                  <Component id="radio_CorDasBarrasPorGrupo" min="-2" max="-2" attributes="0"/>
-                  <Component id="radio_CorDasBarras" min="-2" max="-2" attributes="0"/>
-                  <Component id="radio_RotuloDeDadosValorPercent" min="-2" max="-2" attributes="0"/>
-                  <Component id="radio_RotuloDeDadosValor" min="-2" max="-2" attributes="0"/>
-                  <Component id="radio_RotuloDeDadosPercent" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <Component id="radio_Legenda" min="-2" max="-2" attributes="0"/>
-                  <Component id="radio_Titulo" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
-                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="radio_Grade" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="radio_CorDasBarrasPorGrupo" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="radio_CorDasBarras" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="radio_RotuloDeDadosValorPercent" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="radio_RotuloDeDadosValor" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="radio_RotuloDeDadosPercent" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="radio_Legenda" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="radio_Titulo" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="radio_TituloDosEixos" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jPanel2" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="428" max="32767" attributes="0"/>
@@ -63,7 +63,7 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="GraficosPadrao" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -79,28 +79,34 @@
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="GraficosPadrao" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="radio_Titulo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="radio_Legenda" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="radio_TituloDosEixos" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="radio_RotuloDeDadosPercent" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="radio_RotuloDeDadosValor" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="radio_RotuloDeDadosValorPercent" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="radio_CorDasBarras" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="radio_CorDasBarrasPorGrupo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="radio_Grade" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="radio_Titulo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="radio_Legenda" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="radio_TituloDosEixos" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="radio_RotuloDeDadosPercent" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="radio_RotuloDeDadosValor" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="radio_RotuloDeDadosValorPercent" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="radio_CorDasBarras" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="radio_CorDasBarrasPorGrupo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="radio_Grade" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel2" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton_Desfazer" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -131,10 +137,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radio_TituloDosEixosActionPerformed"/>
       </Events>
     </Component>
-    <Container class="javax.swing.JPanel" name="jPanel1">
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
-    </Container>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Elementos Gr&#xe1;ficos"/>
@@ -144,6 +146,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="R&#xf3;tulo de Dados (%)"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radio_RotuloDeDadosPercentActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="radio_RotuloDeDadosValor">
       <Properties>
@@ -184,17 +189,15 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Gr&#xe1;ficos padr&#xe3;o"/>
+        <Property name="text" type="java.lang.String" value="Gr&#xe1;ficos padr&#xe3;o :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="GraficosPadrao">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
+          <StringArray count="2">
+            <StringItem index="0" value="Barras Horizontais"/>
+            <StringItem index="1" value="Barras Verticais"/>
           </StringArray>
         </Property>
       </Properties>
@@ -218,5 +221,24 @@
         <Property name="text" type="java.lang.String" value="Fechar"/>
       </Properties>
     </Component>
+    <Container class="javax.swing.JPanel" name="jPanel2">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_DeclarationPre" type="java.lang.String" value="private Index index;&#xa;private ChartFrame chart;"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="index = new Index();&#xa;chart = index.start();&#xa;&#xa;jPanel2.add(chart);"/>
+      </AuxValues>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
   </SubComponents>
 </Form>

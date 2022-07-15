@@ -5,28 +5,11 @@
  */
 package grafico.view;
 
-import org.jfree.chart.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.block.BlockBorder;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.XYPlot;
-import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
-import org.jfree.chart.title.TextTitle;
-
-import java.awt.BasicStroke;
-import java.awt.Color;
-
-import java.awt.Font;
-
 import com.mycompany.grafico.Index;
-
+import grafico.presenter.TelaPrincipalPresenter;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 /**
@@ -135,9 +118,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton_Fechar.setText("Fechar");
 
         index = new Index();
-        chart = index.start();
 
-        jPanel2.add(chart);
+        jPanel2.add(index.start());
+        jPanel2.repaint();
+        jPanel2.revalidate();
+        jPanel2.setVerifyInputWhenFocusTarget(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -168,7 +153,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addComponent(radio_Titulo)
                     .addComponent(radio_TituloDosEixos))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(428, Short.MAX_VALUE)
@@ -216,7 +201,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addComponent(radio_Grade))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_Desfazer)
@@ -341,6 +326,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         return jButton_RestaurarPadrao;
     }
     
+    public JPanel getGraficoPanel() {
+        return jPanel2;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> GraficosPadrao;
@@ -353,9 +342,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton_RestaurarPadrao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private Index index;
-    private ChartFrame chart;
     private javax.swing.JPanel jPanel2;
+    private Index index;
     private javax.swing.JRadioButton radio_CorDasBarras;
     private javax.swing.JRadioButton radio_CorDasBarrasPorGrupo;
     private javax.swing.JRadioButton radio_Grade;

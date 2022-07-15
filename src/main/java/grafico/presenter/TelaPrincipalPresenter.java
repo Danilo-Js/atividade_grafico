@@ -1,9 +1,18 @@
 package grafico.presenter;
 import grafico.view.TelaPrincipal;
+import java.awt.Dimension;
+import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.xy.XYDataset;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
 
-public class TelaPrincipalPresenter {
-    private TelaPrincipal view; 
-    
+public class TelaPrincipalPresenter extends javax.swing.JFrame{
+    private TelaPrincipal view;
+
     public TelaPrincipalPresenter() {
         this.view = new TelaPrincipal();
         
@@ -77,7 +86,8 @@ public class TelaPrincipalPresenter {
         this.view.getFechar().addActionListener((e) -> {
             this.view.setVisible(false);
         });
-        
+                
         this.view.setVisible(true);
+//        this.start();
     }
 }

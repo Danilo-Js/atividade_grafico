@@ -51,7 +51,7 @@ Um sistema simples de exibição de dados em gráfico, visando praticar a bilbli
 </br>
 
 <p align="center">
-  <img alt="Web" width="600" height="300" src="https://github.com/Danilo-Js/atividade_grafico/blob/danilo/Images/grafico.png">
+  <img alt="Web" width="600" height="300" src="https://github.com/Danilo-Js/atividade_grafico/blob/main/Images/grafico.png">
 </p>
 
 </br>

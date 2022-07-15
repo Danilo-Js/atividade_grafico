@@ -2,25 +2,10 @@ package com.mycompany.grafico;
 import org.jfree.chart.*;
 import org.jfree.data.category.DefaultCategoryDataset;
 import java.awt.Dimension;
-import org.jfree.data.xy.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
+
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.block.BlockBorder;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.XYPlot;
-import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
-import org.jfree.chart.title.TextTitle;
-
-import java.awt.BasicStroke;
-import java.awt.Color;
-
-import java.awt.Font;
-
-
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;

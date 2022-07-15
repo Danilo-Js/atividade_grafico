@@ -6,7 +6,7 @@
 package grafico.view;
 
 import com.mycompany.grafico.Index;
-import grafico.presenter.TelaPrincipalPresenter;
+import org.jfree.chart.*;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;

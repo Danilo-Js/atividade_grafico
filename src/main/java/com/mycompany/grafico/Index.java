@@ -1,5 +1,6 @@
 package com.mycompany.grafico;
 import org.jfree.chart.*;
+import org.jfree.data.category.DefaultCategoryDataset;
 import java.awt.Dimension;
 import org.jfree.data.xy.*;
 import java.io.BufferedReader;
@@ -21,23 +22,47 @@ import java.awt.Font;
 
 
 
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
+
+import java.io.IOException;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+
+
+
 import grafico.presenter.TelaPrincipalPresenter;
 
 public class Index extends javax.swing.JFrame{
-
-    public ChartPanel start(){
     
-        XYSeries Goals = new XYSeries("Goals Scored");
-        Goals.add(1, 1.0);
-        Goals.add(2, 3.0);
-        Goals.add(3, 2.0);
-        Goals.add(4, 0.0);
-        Goals.add(5, 3.0);
+    public void getDataSet(DefaultCategoryDataset dataset){
         
-        XYDataset xyDataset = new XYSeriesCollection(Goals);
-        JFreeChart chart = ChartFactory.createXYLineChart(
-            "Goals Scored Over Time", "Fixture Number", "Goals",
-            xyDataset, PlotOrientation.VERTICAL, true, true, false);
+        try {
+            Reader reader = Files.newBufferedReader(Paths.get("pessoas.csv"));
+            CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).build();
+            List<String[]> pessoas = csvReader.readAll();
+            double m = 0, f = 0;
+            for (String[] pessoa : pessoas){
+                if (pessoa[0].equals("Masculino")){
+                    m++;
+                } else
+                    f++;
+            }
+            dataset.addValue(f, "Feminino", "Feminino");
+            dataset.addValue(m, "Masculino", "Masculino");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+    
+    public ChartPanel start(){
+
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        getDataSet(dataset);
+        JFreeChart chart = ChartFactory.createBarChart(null, "Sexo", "Número de pessoas", dataset, PlotOrientation.HORIZONTAL, true, false, false);
+        
         ChartPanel cp = new ChartPanel(chart) {
 
             @Override
